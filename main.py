@@ -28,7 +28,7 @@ def run_bot():
     last_price = 0
     
     # 發送啟動通知
-   send_line_msg(f"雲端機器人已上線！\n監控目標: {SYMBOL}")
+    send_line_msg(f"雲端機器人已上線！\n監控目標: {SYMBOL}")
 
     while True
         try
@@ -75,6 +75,7 @@ if __name__ == '__main__'
     start_background_loop() # 啟動機器人
 
     app.run(host='0.0.0.0', port=8080) # 啟動網站
+
 
 
 
