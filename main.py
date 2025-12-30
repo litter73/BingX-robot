@@ -59,7 +59,7 @@ def send_line_msg(msg):
     url = 'httpsapi.line.mev2botmessagepush'
     headers = {'Authorization' f'Bearer {CHANNEL_ACCESS_TOKEN}'}
     data = {'to' USER_ID, 'messages' [{'type' 'text', 'text' msg}]}
-    try
+    try:
         requests.post(url, headers=headers, json=data)
     except
         pass
@@ -75,6 +75,7 @@ if __name__ == '__main__'
     start_background_loop() # 啟動機器人
 
     app.run(host='0.0.0.0', port=8080) # 啟動網站
+
 
 
 
