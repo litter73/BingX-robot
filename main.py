@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 @app.route('')
 def home()
-    return 🤖 BingX 機器人正在背景運作中...
+    return "🤖 BingX 機器人正在背景運作中..."
 
 # 2. 定義機器人的核心邏輯
 def run_bot()
@@ -73,4 +73,5 @@ def start_background_loop()
 # 程式入口
 if __name__ == '__main__'
     start_background_loop() # 啟動機器人
+
     app.run(host='0.0.0.0', port=8080) # 啟動網站
