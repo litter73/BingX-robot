@@ -23,12 +23,12 @@ def home()
 
 # 2. 定義機器人的核心邏輯
 def run_bot()
-    print(f🚀 背景監控啟動 {SYMBOL})
+    print(f"🚀 背景監控啟動: {SYMBOL}")
     exchange = ccxt.bingx({'enableRateLimit' True, 'options' {'defaultType' 'swap'}})
     last_price = 0
     
     # 發送啟動通知
-    send_line_msg(f雲端機器人已上線！n監控目標 {SYMBOL})
+   send_line_msg(f"雲端機器人已上線！\n監控目標: {SYMBOL}")
 
     while True
         try
@@ -44,7 +44,7 @@ def run_bot()
                 
                 if abs(change) = THRESHOLD
                     emoji = 🔥 暴漲 if change  0 else 🩸 暴跌
-                    msg = f【BingX 警報】n{emoji} {SYMBOL}n現價 {price}n幅度 {change.2f}%
+                  msg = f"【BingX 警報】\n{emoji} {SYMBOL}\n現價: {price}\n幅度: {change:.2f}%"
                     send_line_msg(msg)
                     last_price = price
 
@@ -75,3 +75,4 @@ if __name__ == '__main__'
     start_background_loop() # 啟動機器人
 
     app.run(host='0.0.0.0', port=8080) # 啟動網站
+
