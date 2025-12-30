@@ -40,11 +40,11 @@ def run_bot():
                 print(f"🔒 初始鎖定: {price}")
             else
                 change = ((price - last_price)  last_price)  100
-                print(f監控中... {price} (波動 {change.2f}%)) # 雲端 Log
+                print(f"監控中... {price} (波動 {change:.2f}%)") # 雲端 Log
                 
                 if abs(change) = THRESHOLD
                     emoji = 🔥 暴漲 if change  0 else 🩸 暴跌
-                  msg = f"【BingX 警報】\n{emoji} {SYMBOL}\n現價: {price}\n幅度: {change:.2f}%"
+                    msg = f"【BingX 警報】\n{emoji} {SYMBOL}\n現價: {price}\n幅度: {change:.2f}%"
                     send_line_msg(msg)
                     last_price = price
 
@@ -75,6 +75,7 @@ if __name__ == '__main__'
     start_background_loop() # 啟動機器人
 
     app.run(host='0.0.0.0', port=8080) # 啟動網站
+
 
 
 
