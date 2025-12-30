@@ -18,11 +18,11 @@ THRESHOLD = 0.5  # 波動閥值
 app = Flask(__name__)
 
 @app.route('')
-def home()
+def home():
     return "🤖 BingX 機器人正在背景運作中..."
 
 # 2. 定義機器人的核心邏輯
-def run_bot()
+def run_bot():
     print(f"🚀 背景監控啟動: {SYMBOL}")
     exchange = ccxt.bingx({'enableRateLimit' True, 'options' {'defaultType' 'swap'}})
     last_price = 0
@@ -55,7 +55,7 @@ def run_bot()
             time.sleep(60)
 
 # LINE 發送函式
-def send_line_msg(msg)
+def send_line_msg(msg):
     url = 'httpsapi.line.mev2botmessagepush'
     headers = {'Authorization' f'Bearer {CHANNEL_ACCESS_TOKEN}'}
     data = {'to' USER_ID, 'messages' [{'type' 'text', 'text' msg}]}
@@ -65,7 +65,7 @@ def send_line_msg(msg)
         pass
 
 # 3. 讓機器人在「背景執行緒」跑，主執行緒留給網站
-def start_background_loop()
+def start_background_loop():
     thread = threading.Thread(target=run_bot)
     thread.daemon = True
     thread.start()
@@ -75,4 +75,5 @@ if __name__ == '__main__'
     start_background_loop() # 啟動機器人
 
     app.run(host='0.0.0.0', port=8080) # 啟動網站
+
 
