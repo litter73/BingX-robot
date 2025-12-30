@@ -31,7 +31,7 @@ def run_bot():
     send_line_msg(f"雲端機器人已上線！\n監控目標: {SYMBOL}")
 
     while True:
-        try
+        try:
             ticker = exchange.fetch_ticker(SYMBOL)
             price = ticker['last']
             
@@ -75,6 +75,7 @@ if __name__ == '__main__'
     start_background_loop() # 啟動機器人
 
     app.run(host='0.0.0.0', port=8080) # 啟動網站
+
 
 
 
